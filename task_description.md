@@ -9,7 +9,7 @@ Tasks
     - Phase   
 
 - Creation of a ROS2 node that subscribes to that topic and log the value
-- Nodes should be configured using the generate parameter library: generate parameter library
+- Nodes should be configured using the generate parameter library: [generate parameter library](https://github.com/PickNikRobotics/generate_parameter_library)
 - The node should  run with a python launch file
 2.  Service
 - Extend the previously created nodes by adding a custom service
