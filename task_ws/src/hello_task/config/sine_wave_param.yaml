@@ -1,0 +1,20 @@
+sine_wave_param:
+  amplitude:
+    type: double
+    default_value: 10.0
+    description: "Amplitude of the sine wave"
+
+  pub_frequency:
+    type: int
+    default_value: 1
+    description: "Publish frequency in Hz"
+
+  angle_frequency:
+    type: double
+    default_value: 1.0
+    description: "Frequency of the sine wave in Hz"
+
+  phase:
+    type: double
+    default_value: 1.57
+    description: "Phase shift of the sine wave in radians"
