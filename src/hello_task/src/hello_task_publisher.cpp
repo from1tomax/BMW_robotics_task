@@ -12,7 +12,7 @@ public:
     param_listener_ = std::make_shared<sine_wave_param::ParamListener>(get_node_parameters_interface());
     int pub_frequency = param_listener_->get_params().pub_frequency;
     time_step_ = 1000 / pub_frequency;
-    timer_ = this->create_wall_timer(std::chrono::milliseconds(1000),
+    timer_ = this->create_wall_timer(std::chrono::milliseconds(time_step_),
                                      std::bind(&SineWavePublisher::publish_sine_wave, this));
   }
 

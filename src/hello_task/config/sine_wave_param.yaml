@@ -6,12 +6,12 @@ sine_wave_param:
 
   pub_frequency:
     type: int
-    default_value: 1
+    default_value: 10
     description: "Publish frequency in Hz"
 
   angle_frequency:
     type: double
-    default_value: 1.0
+    default_value: 0.1
     description: "Frequency of the sine wave in Hz"
 
   phase:
