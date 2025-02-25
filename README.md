@@ -1,7 +1,8 @@
 ## Project Structure🧱
 ```
 ros2_ws
-├── doc/
+├── .github/..
+├── doc/..
 ├── src/
 │   ├── customized_interfaces/
 │   │   ├── srv/
