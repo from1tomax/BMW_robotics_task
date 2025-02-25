@@ -1,0 +1,30 @@
+name: ROS2 Linting Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  linting:
+    name: Code Formatting & Linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup ROS 2 Humble
+        uses: ros-tooling/setup-ros@v0.7
+        with:
+          required-ros-distributions: humble
+
+      - name: Install Clang-Format
+        run: |
+          sudo apt update
+          sudo apt install -y clang-format
+
+      - name: Check C++ Formatting with Clang-Format
+        run: |
+          find src -name "*.hpp" -o -name "*.cpp" | xargs clang-format --dry-run --Werror
