@@ -52,6 +52,18 @@ install(DIRECTORY launch config include
   
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
+  find_package(ament_cmake_gtest REQUIRED)
+  ament_add_gtest(${PROJECT_NAME}_basic_test test/basic_test.cpp)
+
+  target_include_directories(${PROJECT_NAME}_basic_test PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+  )
+  target_link_libraries(${PROJECT_NAME}_basic_test
+    sine_wave_param
+    rclcpp::rclcpp
+)
+  ament_target_dependencies(${PROJECT_NAME}_basic_test rclcpp std_msgs)
   # the following line skips the linter which checks for copyrights
   # comment the line when a copyright and license is added to all source files
   set(ament_cmake_copyright_FOUND TRUE)
