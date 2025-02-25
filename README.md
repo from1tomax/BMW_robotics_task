@@ -50,7 +50,7 @@ source ~/.bashrc
 ```
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
-git clone <your-repo-url>
+git clone git@github.com:from1tomax/BMW_robotics_task.git
 cd ..
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
