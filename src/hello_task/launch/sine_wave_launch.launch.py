@@ -12,5 +12,15 @@ def generate_launch_description():
             package='hello_task',
             executable='sine_wave_subscriber',
             name='sine_wave_subscriber',
+        ),
+        Node(
+            package='hello_task',
+            executable='grayscale_server',
+            name='grayscale_server',
+        ),
+        Node(
+            package='hello_task',
+            executable='grayscale_client',
+            name='grayscale_client',
         )
     ])

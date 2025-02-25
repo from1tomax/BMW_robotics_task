@@ -9,7 +9,12 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(cv_bridge REQUIRED)
+find_package(OpenCV REQUIRED) 
 find_package(generate_parameter_library REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+find_package(customized_interfaces REQUIRED)
 
 generate_parameter_library(
   sine_wave_param 
@@ -21,14 +26,22 @@ target_link_libraries(sine_wave_publisher
     sine_wave_param
     rclcpp::rclcpp
 )
-ament_target_dependencies(sine_wave_publisher std_msgs)
+ament_target_dependencies(sine_wave_publisher rclcpp std_msgs)
 
 add_executable(sine_wave_subscriber src/hello_task_subscriber.cpp)
 ament_target_dependencies(sine_wave_subscriber rclcpp std_msgs)
 
+add_executable(grayscale_client src/grayscale_client.cpp)
+ament_target_dependencies(grayscale_client rclcpp std_msgs sensor_msgs cv_bridge OpenCV customized_interfaces)
+
+add_executable(grayscale_server src/grayscale_server.cpp)
+ament_target_dependencies(grayscale_server rclcpp std_msgs sensor_msgs cv_bridge OpenCV customized_interfaces)
+
 install(TARGETS
   sine_wave_publisher
   sine_wave_subscriber
+  grayscale_server
+  grayscale_client
   DESTINATION lib/${PROJECT_NAME}
   )
 
